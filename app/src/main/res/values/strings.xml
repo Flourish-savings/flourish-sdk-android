@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Flourish SDK Android</string>
+    <string name="this_is_a_native_android_app_example_click_the_button_below_to_open_the_flourish_experience">This is a native Android App example, click the button below to open the Flourish experience</string>
+</resources>
