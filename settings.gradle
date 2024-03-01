@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Flourish SDK Android"
 include ':app'
-include ':app:flourish_sdk'
