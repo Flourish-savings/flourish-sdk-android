@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity(), FlourishEventListener {
         setContentView(R.layout.activity_main)
 
         Flourish.initializer(
-            customerCode = "123",
-            partnerId = "8af294ef-e1dc-4e66-8d31-f36730a88f8e",
-            secret = "Kd3uUc-NK2fgwG-VqB7DuH-ckqci6-GRhadB",
+            customerCode = "YOUR_CUSTOMER_CODE",
+            partnerId = "YOUR_PARTNER_ID",
+            secret = "YOUR_PARTNER_SECRET",
             environment = Environment.STAGING,
             language = Language.PORTUGUESE
         )
