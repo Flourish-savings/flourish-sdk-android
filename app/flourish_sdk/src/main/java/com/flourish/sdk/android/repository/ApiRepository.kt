@@ -13,8 +13,7 @@ class ApiRepository {
 
     fun retrieveToken(flourish: Flourish) {
         val requestBody = ApiRequest(flourish.partnerId, flourish.secret, flourish.customerCode)
-
-        val apiService = ApiClient.create()
+        val apiService = ApiClient.create(environment = Flourish.environment)
         val call = apiService.generateToken(requestBody)
 
         call.enqueue(object : Callback<ApiResponse> {

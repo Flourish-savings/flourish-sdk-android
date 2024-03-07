@@ -6,6 +6,7 @@ import android.util.Log
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.flourish.sdk.android.configuration.Environment
 import com.flourish.sdk.android.databinding.RewardsMainBinding
 import com.flourish.sdk.android.webview.JSBridge
 
@@ -24,7 +25,13 @@ class RewardsActivity : AppCompatActivity() {
         val language = Flourish.language.value
         binding.flourishApp.settings.javaScriptEnabled = true
         binding.flourishApp.addJavascriptInterface(JSBridge(),"Android")
-        binding.flourishApp.loadUrl("https://platform-stg.flourishfi.com/?lang=$language&token=$token")
+
+        val STAGING_BASE_URL = "https://platform-stg.flourishfi.com/"
+        val PRODUCTION_BASE_URL = "https://platform.flourishfi.com/"
+
+        val url = if (Flourish.environment == Environment.PRODUCTION) PRODUCTION_BASE_URL else STAGING_BASE_URL
+
+        binding.flourishApp.loadUrl("$url?lang=$language&token=$token")
 
         binding.flourishApp.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {

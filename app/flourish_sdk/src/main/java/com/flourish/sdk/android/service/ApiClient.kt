@@ -1,14 +1,18 @@
 package com.flourish.sdk.android.service
 
+import com.flourish.sdk.android.configuration.Environment
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    private const val BASE_URL = "https://api-stg.flourishfi.com/api/v1/"
+    fun create(environment: Environment): ApiService {
+        val STAGING_BASE_URL = "https://api-stg.flourishfi.com/api/v1/"
+        val PRODUCTION_BASE_URL = "https://api.flourishfi.com/api/v1/"
 
-    fun create(): ApiService {
+        val baseUrl = if (environment == Environment.PRODUCTION) PRODUCTION_BASE_URL else STAGING_BASE_URL
+
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
