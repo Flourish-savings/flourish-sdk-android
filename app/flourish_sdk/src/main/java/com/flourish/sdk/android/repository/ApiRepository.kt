@@ -37,7 +37,8 @@ class ApiRepository {
 
     fun signIn(authToken: String) {
         val apiService = ApiClient.create(environment = Flourish.environment)
-        val call = apiService.signIn("Bearer $authToken")
+        val sdkVersion = android.os.Build.VERSION.SDK_INT.toString()
+        val call = apiService.signIn("Bearer $authToken", sdkVersion)
 
         call.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
