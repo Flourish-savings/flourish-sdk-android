@@ -31,7 +31,9 @@ class RewardsActivity : AppCompatActivity() {
 
         val url = if (Flourish.environment == Environment.PRODUCTION) PRODUCTION_BASE_URL else STAGING_BASE_URL
 
-        binding.flourishApp.loadUrl("$url?lang=$language&token=$token")
+        val sdkVersion = android.os.Build.VERSION.SDK_INT.toString()
+
+        binding.flourishApp.loadUrl("$url?lang=$language&token=$token&sdk_version=$sdkVersion")
 
         binding.flourishApp.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
