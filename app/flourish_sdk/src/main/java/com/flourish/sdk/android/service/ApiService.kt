@@ -13,6 +13,7 @@ interface ApiService {
 
     @POST("api/sign_in")
     fun signIn(
-        @Header("Authorization") authToken: String
+        @Header("Authorization") authToken: String,
+        @Header("Sdk-Version") sdkVersion: String,
     ): Call<Void>
 }
