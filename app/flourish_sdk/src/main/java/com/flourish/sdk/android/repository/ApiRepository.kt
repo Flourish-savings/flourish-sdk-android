@@ -22,14 +22,30 @@ class ApiRepository {
                     val data = response.body()
                     if (data != null) {
                         flourish.token = data.token
+                        signIn(data.token)
                     }
                 } else {
-                    Log.e("API token request error", "message")
+                    Log.e("API token request error", response.message())
                 }
             }
 
             override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                Log.e("API token request error", "message")
+                t.message?.let { Log.e("API token request error", it) }
+            }
+        })
+    }
+
+    fun signIn(authToken: String) {
+        val apiService = ApiClient.create(environment = Flourish.environment)
+        val call = apiService.signIn("Bearer $authToken")
+
+        call.enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                Log.i("SignIn", "SignIn request success")
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                t.message?.let { Log.e("SignIn request error", it) }
             }
         })
     }
