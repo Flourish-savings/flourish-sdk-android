@@ -24,7 +24,7 @@ class RewardsActivity : AppCompatActivity() {
         val token = Flourish.token
         val language = Flourish.language.value
         binding.flourishApp.settings.javaScriptEnabled = true
-        binding.flourishApp.addJavascriptInterface(JSBridge(),"Android")
+        binding.flourishApp.addJavascriptInterface(JSBridge(this),"Android")
 
         val STAGING_BASE_URL = "https://platform-stg.flourishfi.com/"
         val PRODUCTION_BASE_URL = "https://platform.flourishfi.com/"
