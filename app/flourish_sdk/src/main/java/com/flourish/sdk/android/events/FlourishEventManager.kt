@@ -13,7 +13,7 @@ object FlourishEventManager {
 
     fun notifyEventOccurred(event: Event) {
         for (listener in listeners) {
-            listener.onBackButtonPressedEvent(event)
+            listener.onGenericEvent(event)
         }
     }
 }

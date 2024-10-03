@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity(), FlourishEventListener {
         setContentView(R.layout.activity_main)
 
         Flourish.initializer(
-            customerCode = "123",
-            partnerId = "8af294ef-e1dc-4e66-8d31-f36730a88f8e",
-            secret = "Kd3uUc-NK2fgwG-VqB7DuH-ckqci6-GRhadB",
+            customerCode = "HERE_YOU_WILL_USE_YOUR_CUSTOMER_CODE",
+            partnerId = "HERE_YOU_WILL_USE_YOUR_PARTNER_ID",
+            secret = "HERE_YOU_WILL_USE_YOUR_SECRET",
             environment = Environment.STAGING,
-            language = Language.PORTUGUESE
+            language = Language.ENGLISH
         )
 
         FlourishEventManager.addListener(this)
@@ -37,35 +37,8 @@ class MainActivity : AppCompatActivity(), FlourishEventListener {
 
     }
 
-    override fun onBackButtonPressedEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
-
     override fun onGenericEvent(event: Event) {
         Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
     }
 
-    override fun onGiftCardCopyEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
-
-    override fun onHomeBannerActionEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
-
-    override fun onMissionActionEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
-
-    override fun onReferralCopyEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
-
-    override fun onTriviaCloseEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
-
-    override fun onTriviaGameFinishedEvent(event: Event) {
-        Log.d("LibraryEvent", "Event occurred: ${event.eventName}")
-    }
 }
