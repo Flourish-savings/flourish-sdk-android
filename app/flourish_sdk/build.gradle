@@ -1,7 +1,14 @@
 plugins {
     id 'com.android.library'
+    //id 'maven-publish'
+    //id 'signing'
     id 'org.jetbrains.kotlin.android'
+    id "com.vanniktech.maven.publish" version "0.29.0"
+    //id "com.gradleup.nmcp" version "0.0.8"
 }
+
+//group = 'com.flourishfi.sdk'
+//version = '1.0.0'
 
 android {
     namespace 'com.flourish.sdk.android'
@@ -43,7 +50,60 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
     implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+    implementation 'androidx.activity:activity:1.8.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
+//
+//publishing {
+//    publications {
+//        release(MavenPublication) {
+//            groupId = 'com.flourishfi.sdk'
+//            artifactId = 'flourish-sdk'
+//            version = '1.0.0'
+//
+//            pom {
+//                name = 'Flourish SDK'
+//                description = 'The Flourish SDK Android library'
+//                url = 'https://github.com/Flourish-savings/flourish-sdk-android'
+//                properties = [
+//                        myProp: "value",
+//                        "prop.with.dots": "anotherValue"
+//                ]
+//                licenses {
+//                    license {
+//                        name = 'The Apache License, Version 2.0'
+//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id = 'modrach'
+//                        name = 'Pedro Modrach'
+//                        email = 'pedro.modrach@flourishfi.com'
+//                    }
+//                }
+//                scm {
+//                    connection = 'scm:git:git://example.com/my-library.git'
+//                    developerConnection = 'scm:git:ssh://example.com/my-library.git'
+//                    url = 'pedro.modrach@flourishfi.com'
+//                }
+//            }
+//
+//            afterEvaluate {
+//                from components.release
+//            }
+//        }
+//    }
+//    repositories {
+//        maven {
+//            name = 'myrepo'
+//            url = layout.buildDirectory.dir("repo")
+//        }
+//    }
+//}
+//
+//signing {
+//    sign publishing.publications.release
+//}
