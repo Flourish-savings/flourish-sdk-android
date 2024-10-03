@@ -7,7 +7,7 @@
     <application>
         <activity
             android:name=".RewardsActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_rewards_main"
             android:theme="@style/Theme.FlourishSDKAndroid.NoActionBar">
             <meta-data
@@ -15,7 +15,6 @@
                 android:value="" />
             <intent-filter>
                 <action android:name="com.flourish.sdk.android.ACTION_OPEN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.FlourishSDKAndroid.NoActionBar">
+    <style name="Theme.FlourishSDKAndroid.NoActionBar" parent="Theme.MaterialComponents.DayNight">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
